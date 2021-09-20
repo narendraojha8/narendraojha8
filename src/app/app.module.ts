@@ -11,6 +11,10 @@ import {routesConfig} from "./routes.config";
 import {LessonsService} from "./services/lessons.service";
 import {ReactiveFormsModule} from "@angular/forms";
 
+import {switchMap,shareReplay} from 'rxjs/operators';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/switchMap';
+
 
 
 @NgModule({
@@ -24,7 +28,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     BrowserModule,
       HttpClientModule,
       RouterModule.forRoot(routesConfig),
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      
   ],
   providers: [LessonsService],
   bootstrap: [AppComponent]

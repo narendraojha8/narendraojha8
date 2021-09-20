@@ -4,6 +4,7 @@ import * as express from 'express';
 import {Application} from "express";
 import * as fs from 'fs';
 import * as https from 'https';
+import { createUser } from './create-user';
 import {readAllLessons} from "./read-all-lessons.route";
 
 const bodyParser = require('body-parser');
@@ -24,7 +25,9 @@ const options = commandLineArgs(optionDefinitions);
 // REST API
 app.route('/api/lessons')
     .get(readAllLessons);
-
+app.route('/api/signup')
+    .post(createUser);
+// app.route('/api/test').post(createUser);
 
 if (options.secure) {
 
